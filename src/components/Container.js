@@ -1,3 +1,4 @@
+import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PostList from './PostList';
@@ -52,7 +53,7 @@ const Container = () => {
   return (
     <div>
       <h1>Reddit Posts</h1>
-      <button onClick={refreshPosts}>Refresh Posts</button>
+      <Button variant="primary" onClick={refreshPosts}>Refresh Posts</Button>
       <PostList posts={posts} />
     </div>
   );
