@@ -1,18 +1,18 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import styles from '../styles/NavBar.module.css';
 import React from "react"
 import Logo from "../assets/logo-color.svg";
 
 const NavBar = () => {
     return (
         <>
-          <Navbar bg="light">
+          <Navbar className={styles.NavBar}>
             <Container>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand>
               <img
                   src={Logo}
-                  height="40"
-                  className="d-inline-block align-top"
+                  height="50"
                   alt="Empyrean Solutions logo"
                 />
               </Navbar.Brand>
