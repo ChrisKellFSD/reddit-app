@@ -1,0 +1,13 @@
+.card {
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.cardImg {
+    object-fit: cover;
+    height: 100%;
+}

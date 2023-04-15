@@ -1,3 +1,4 @@
+import styles from '../styles/Container.module.css';
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -5,6 +6,20 @@ import PostList from './PostList';
 
 const Container = () => {
   const [posts, setPosts] = useState([]);
+
+  const buttonStyle = {
+    backgroundColor: '#38bfa5',
+    color: 'white',
+    borderColor: '#38bfa5'
+  };
+
+  const buttonHoverStyle = {
+    backgroundColor: 'white',
+    color: '#38bfa5',
+    borderColor: '#38bfa5'
+  };
+
+  const [buttonState, setButtonState] = React.useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,8 +67,15 @@ const Container = () => {
 
   return (
     <div>
-      <h1>Reddit Posts</h1>
-      <Button variant="primary" onClick={refreshPosts}>Refresh Posts</Button>
+      <h1 className={styles.h1}>Reddit Posts</h1>
+      <Button
+        style={buttonState ? buttonHoverStyle : buttonStyle}
+        onMouseOver={() => setButtonState(true)}
+        onMouseOut={() => setButtonState(false)}
+        onClick={refreshPosts}
+      >
+        Refresh Posts
+      </Button>
       <PostList posts={posts} />
     </div>
   );
