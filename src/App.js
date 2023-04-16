@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from './pages/Container';
+import PostsPage from './pages/PostsPage';
 import NavBar from './components/NavBar';
 import styles from './App.module.css';
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
-      <Container />
+      <PostsPage />
     </div>
   );
 }
