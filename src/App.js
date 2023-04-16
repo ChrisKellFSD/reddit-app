@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from './components/Container';
+import Container from './pages/Container';
 import NavBar from './components/NavBar';
 import styles from './App.module.css';
 
