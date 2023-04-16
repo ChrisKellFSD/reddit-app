@@ -67,6 +67,8 @@ const Container = () => {
     setPosts(sortedPosts);
   };
 
+  const filteredPosts = posts.filter(post => post.data.title.toLowerCase().includes(query.toLowerCase()));
+
   return (
     <div>
       <div className={styles.container}>
@@ -75,25 +77,25 @@ const Container = () => {
           style={buttonState ? buttonHoverStyle : buttonStyle}
           onMouseOver={() => setButtonState(true)}
           onMouseOut={() => setButtonState(false)}
-          onClick={refreshPosts} // Modified line
+          onClick={refreshPosts}
         >
           Refresh Posts
         </Button>
-        </div>
-        <i className={`fas fa-search ${styles.SearchIcon}`} />
-        <Form
-          className={styles.SearchBar}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Form.Control
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            placeholder="Search posts"
-          />
-        </Form>
-      <PostList posts={posts} />
+      </div>
+      <i className={`fas fa-search ${styles.SearchIcon}`} />
+      <Form
+        className={styles.SearchBar}
+        onSubmit={(event) => event.preventDefault()}
+      >
+        <Form.Control
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          type="text"
+          className="mr-sm-2"
+          placeholder="Search post title"
+        />
+      </Form>
+      <PostList posts={filteredPosts} />
     </div>
   );
 };
