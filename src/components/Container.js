@@ -1,4 +1,5 @@
 import styles from '../styles/Container.module.css';
+import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -6,6 +7,7 @@ import PostList from './PostList';
 
 const Container = () => {
   const [posts, setPosts] = useState([]);
+  const [query, setQuery] = useState("");
 
   const buttonStyle = {
     backgroundColor: '#38bfa5',
@@ -67,15 +69,30 @@ const Container = () => {
 
   return (
     <div>
-      <h1 className={styles.h1}>Reddit Posts</h1>
-      <Button
-        style={buttonState ? buttonHoverStyle : buttonStyle}
-        onMouseOver={() => setButtonState(true)}
-        onMouseOut={() => setButtonState(false)}
-        onClick={refreshPosts}
-      >
-        Refresh Posts
-      </Button>
+      <div className={styles.container}>
+        <h1>Reddit Posts</h1>
+        <Button
+          style={buttonState ? buttonHoverStyle : buttonStyle}
+          onMouseOver={() => setButtonState(true)}
+          onMouseOut={() => setButtonState(false)}
+          onClick={refreshPosts} // Modified line
+        >
+          Refresh Posts
+        </Button>
+        </div>
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search posts"
+          />
+        </Form>
       <PostList posts={posts} />
     </div>
   );
