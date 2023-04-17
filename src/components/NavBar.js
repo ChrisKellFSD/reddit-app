@@ -14,6 +14,7 @@ const NavBar = () => {
                   src={Logo}
                   height="50"
                   alt="Empyrean Solutions logo"
+                  className="mx-auto"
                 />
               </Navbar.Brand>
             </Container>
