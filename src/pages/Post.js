@@ -17,7 +17,7 @@ const Post = ({ post }) => {
   const badgeColor = badgeColors[subreddit] || 'secondary';
 
   return (
-    <Card>
+    <Card className={styles.post}>
       {thumbnail && (
         <div className={styles.container}>
           <Card.Img className={styles.cardImg} variant="top" src={thumbnail} />

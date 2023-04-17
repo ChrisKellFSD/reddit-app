@@ -7,9 +7,9 @@ import Post from '../pages/Post';
 const PostList = ({ posts }) => {
   return (
     <Container>
-      <Row xs={1} md={2} lg={3}>
+      <Row xs={1}>
         {posts.map((post, index) => (
-          <Col key={index}>
+          <Col key={index} className="mb-4">
             <Post post={post} />
           </Col>
         ))}

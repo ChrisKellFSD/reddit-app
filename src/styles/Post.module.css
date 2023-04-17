@@ -11,3 +11,9 @@
     object-fit: cover;
     height: 100%;
 }
+
+.post {
+    border: 1px solid #eaeaea;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
